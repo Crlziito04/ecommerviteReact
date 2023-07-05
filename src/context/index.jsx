@@ -16,12 +16,12 @@ const ShoppingCartProvider = ({ children }) => {
   const [productToShow, setProductToShow] = useState({});
 
   //Car Products -add product to cart
-  const [cartProducts, setCartProducts] = useState({});
+  const [cartProducts, setCartProducts] = useState([]);
 
   // Checkout open/close
-  const [checkoutOpen, setCheckoutOpen] = useState(false);
-  const openCheckout = () => setCheckoutOpen(true);
-  const closeCheckout = () => setCheckoutOpen(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const openCheckout = () => setIsCheckoutOpen(true);
+  const closeCheckout = () => setIsCheckoutOpen(false);
 
   return (
     <ShoppingCartContext.Provider
@@ -35,7 +35,8 @@ const ShoppingCartProvider = ({ children }) => {
         setProductToShow,
         cartProducts,
         setCartProducts,
-        checkoutOpen,
+        isCheckoutOpen,
+        setIsCheckoutOpen,
         openCheckout,
         closeCheckout,
       }}

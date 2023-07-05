@@ -9,7 +9,7 @@ const Checkout = () => {
   return (
     <aside
       className={`${
-        context.checkoutOpen ? "flex" : "hidden"
+        context.isCheckoutOpen ? "flex" : "hidden"
       } checkout flex-col fixed right-0 border border-black rounded-lg bg-white items-center`}
     >
       <div className="w-full flex justify-between items-center  p-6">
