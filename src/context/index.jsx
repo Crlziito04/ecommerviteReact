@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const ShoppingCartContext = createContext();
 
@@ -23,6 +23,20 @@ const ShoppingCartProvider = ({ children }) => {
   const openCheckout = () => setIsCheckoutOpen(true);
   const closeCheckout = () => setIsCheckoutOpen(false);
 
+  //Order
+  const [order, setOrder] = useState([]);
+
+  //SearchProducts
+  const [search, setSearch] = useState(null);
+  console.log(search);
+
+  //GetProducts
+  const [items, setItems] = useState(null);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => setItems(data));
+  }, []);
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -39,6 +53,12 @@ const ShoppingCartProvider = ({ children }) => {
         setIsCheckoutOpen,
         openCheckout,
         closeCheckout,
+        order,
+        setOrder,
+        items,
+        setItems,
+        search,
+        setSearch,
       }}
     >
       {children}

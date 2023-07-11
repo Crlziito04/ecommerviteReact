@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
     children: PropTypes.node.isRequired,
   };
 
-  return <div className="flex flex-col items-center mt-20 ">{children}</div>;
+  return <div className="flex flex-col items-center mt-20">{children}</div>;
 };
 
 export default Layout;

@@ -5,9 +5,10 @@ import { ShoppingCartContext } from "../../context";
 
 function MyOrders() {
   const context = useContext(ShoppingCartContext);
+  console.log(context.order);
   return (
     <div>
-      <h1>MyOrders</h1>
+      <h1 className="font-medium text-xl text-center mb-3">MyOrders</h1>
 
       {context.order.map((order, index) => (
         <Link key={index} to={`/my-orders/${index}`}>
